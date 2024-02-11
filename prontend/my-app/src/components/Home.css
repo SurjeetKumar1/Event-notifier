@@ -1,0 +1,35 @@
+.mainbody{
+    background-color: #1d002c !important;
+     overflow-x: hidden;
+     color: white;
+     /* width: 100%;
+     height: 100%; */
+}
+::-webkit-scrollbar{
+    height: .1rem;
+    width: .5rem;
+}
+::-webkit-scrollbar-track{
+    background-color: #67ccff;
+}
+::-webkit-scrollbar-thumb{
+    background-color: #194eb9;
+}
+
+section{
+    min-height: 100vh;
+}
+/* .mainbody img{
+    width: 100vw;
+    height: 100vh;
+} */
+section.img1{
+    background-image: url("./HomeImage/sky.png");
+}
+.parallax-home{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
