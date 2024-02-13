@@ -75,6 +75,7 @@ const handleSubmit = async (e) => {
               fontSize: "6rem",
               background: "linear-gradient(red, yellow)",
               borderRadius: "70px",
+              color:"white"
             }}
           />
         </div>

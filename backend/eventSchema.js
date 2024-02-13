@@ -22,7 +22,10 @@ const event_Schema = new mongoose.Schema({
       message: "Event date cannot be in the past",
     },
   },
-  
+ venue: {
+    type: String,
+    required: true,
+  },
   Resistration_link: {
     type: String,
     required: true,
@@ -30,9 +33,12 @@ const event_Schema = new mongoose.Schema({
 
   Poster_image: {
     data: Buffer,
-    // contentType: String,
+    contentType: String,
   },
-  
+  uploadedTime: {
+    type: Date,
+    default: Date.now()
+  },
 });
 
 const Event_Data = mongoose.model("Event_Data", event_Schema);

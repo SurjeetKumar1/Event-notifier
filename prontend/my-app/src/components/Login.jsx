@@ -35,7 +35,7 @@ export default function Signup() {
         <h1>Login Form</h1>
         <div className='profile'>
 
-          <AccountCircleIcon style={{ fontSize: '6rem', background: 'linear-gradient(red, yellow)', borderRadius: "70px" }} />
+          <AccountCircleIcon style={{ fontSize: '6rem', background: 'linear-gradient(red, yellow)', borderRadius: "70px",color:"white" }} />
 
         </div>
         <div className='input-box'>

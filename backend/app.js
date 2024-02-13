@@ -185,11 +185,12 @@ app.post("/upload", (req, res) => {
               Description: req.body.Description,
              Departmen: req.body.Departmen,
           Event_date: req.body.Event_date,
+          venue:req.body.venue,
           Resistration_link: req.body.Resistration_link,
     
       Poster_image: {
-        data: req.file.filename, // Assuming 'data' is the field for the filename in the Poster_image sub-document
-        contentType: "image/png", // Specify the content type based on your file type
+        data: req.file.filename, 
+        contentType: "image/png", // 
       },
     });
 
@@ -205,7 +206,16 @@ app.post("/upload", (req, res) => {
   });
 });
 
-
+app.get("/upload",async (req,res)=>{
+  let skipAmmount=Number(req.query.skip);
+  try {
+    const evendata = await events_schema.find().sort({"uploadedTime":-1}).skip(skipAmmount).limit(2);
+    res.status(200).send(evendata);
+    console.log(skipAmmount); 
+} catch (e) {
+    res.status(400).end(e);
+}
+})
 
 
 app.listen(port, () => {

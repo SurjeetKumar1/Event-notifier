@@ -1,15 +1,17 @@
 img{
-    width: 100px;
-    height: 95px;
+    width: 244px;
+    height: 50px;
+    margin-left: 30px;
+    padding: 5px;
 }
 .nav{
+    margin-bottom: 2px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-     /* background: linear-gradient(to right,rgba(0,168,253),#fff 35%, #e00a95 ); 
-    padding: 7px 80px;
-    box-shadow: 0 5px 15px red; */
-    background: rgb(3, 3, 41);;
+    background: #dfdfeb;
+    box-shadow: 5px 15px 20px #4f4e4e1c;
+    height: 100px;
 }
 .nav-list{
     display: flex;
@@ -23,8 +25,8 @@ img{
 }
 .nav-list li a{
 text-decoration: none;
-font-size: 1.3rem;
-font-weight: 600;
+font-size: 1.05rem;
+/* font-weight: 600; */
 /* color: rgb(4, 3, 0); */
 color: white;
 transition: 0.3s ease-in-out;
@@ -33,20 +35,11 @@ transition: 0.3s ease-in-out;
 .nav-list li a:hover,
 .nav-list li a.active
 {
-    color: yellow;
-}
-.nav-list li a:hover::after,
-.nav-list li a.active::after{
-    content: "";
-    width: 50%;
-    height: 2px;
-    background-color: black;
-    position: absolute;
-    bottom: -6px;
-    left: 20px;
-    background:yellow;
+    color: rgb(20, 4, 63);
+    /* color: rgb(255, 153, 0); */
 
 }
+
 .mobile{
     display: none;
 }
@@ -90,4 +83,8 @@ transition: 0.3s ease-in-out;
         cursor: pointer;
 
     }
+}
+.nav-list li a :hover{
+background: red;
+
 }

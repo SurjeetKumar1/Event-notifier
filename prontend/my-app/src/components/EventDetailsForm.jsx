@@ -9,6 +9,7 @@ export default function Department() {
   const [Event_date, set_event_Date] = useState("");
   const [Resistration_link, set_event_link] = useState("");
   const [testImage, setSelectedImage] = useState("");
+  const [venue,setvenue]=useState("");
 
   const handleChange = (e, setter) => {
     setter(e.target.value);
@@ -23,6 +24,7 @@ export default function Department() {
     formData.append('Description', Description);
     formData.append('Departmen', Departmen);
     formData.append('Event_date', Event_date);
+    formData.append('venue', venue);
     formData.append('Resistration_link', Resistration_link);
     formData.append('testImage', testImage); // Append the file
 
@@ -38,6 +40,7 @@ export default function Department() {
       set_event_Date("");
       set_event_link("");
       setSelectedImage("");
+      setvenue("");
 
       console.log("Form submitted", event_details.data);
     } catch (error) {
@@ -94,6 +97,17 @@ export default function Department() {
           value={Event_date}
           required
           onChange={(e) => handleChange(e, set_event_Date)}
+        />
+        <label>Venue</label>
+        <input
+        className='event-information'
+          type='venue'
+          id='venue'
+          name='venue'
+          placeholder='Venue'
+          value={venue}
+          required
+          onChange={(e) => handleChange(e, setvenue)}
         />
 
         <label>Event Registration(if any)</label>
