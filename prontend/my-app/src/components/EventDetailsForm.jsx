@@ -31,7 +31,7 @@ export default function Department() {
     try {
       // Note: You must specify the 'Content-Type': 'multipart/form-data' in the headers,
       // but Axios will automatically set it correctly when you pass FormData as the post data
-      const event_details = await axios.post("http://localhost:7000/upload", formData);
+      const event_details = await axios.post("event-notifier-neon.vercel.app/upload", formData);
 
       // Reset state here to clear the form if needed
       set_event_name("");
