@@ -17,7 +17,7 @@ app.use(express.json());
 
 app.use(cors(
   {
-    origin:["https://Event-notifier-1whq.vercel.app"],
+    origin:[""],
     methods:["POST","GET"],
     credentials:true
   }
