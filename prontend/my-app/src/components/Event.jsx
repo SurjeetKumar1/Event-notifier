@@ -43,7 +43,7 @@ const Event = () => {
   const fetchdata = async () => {
     try {
       const skip = (page - 1) * 2; 
-      const evdata = await axios.get(`http://localhost:7000/upload?skip=${skip}`);
+      const evdata = await axios.get(`event-notifier-neon.vercel.app/upload?skip=${skip}`);
       setpage(page + 1); 
       setapidata(prevData => [...prevData, ...evdata.data]); // Append new data to existing data
       console.log(evdata.data);
