@@ -14,6 +14,17 @@ const port = 7000;
 app.use(cors());
 app.use(express.json());
 
+
+app.use(cors(
+  {
+    origin:["https://Event-notifier-1whq.vercel.app"],
+    methods:["POST","GET"],
+    credentials:true
+  }
+))
+
+mongoose.connect("mongodb+srv://amank250umar:HYQLspaui8AJ9GJ1@cluster0.lql7oej.mongodb.net/CUH-student?retryWrites=true&w=majority")
+
 // Registration Route
 app.post("/register", async (req, res) => {
     try {
@@ -156,6 +167,7 @@ app.get("/sendmail",sendMail);
 
 const events_schema = require("./eventSchema");
 const multer = require('multer');
+const { default: mongoose } = require("mongoose");
 
 // Storage configuration
 const storage = multer.diskStorage({
