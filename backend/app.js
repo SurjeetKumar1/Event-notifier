@@ -5,8 +5,6 @@ const bcrypt = require("bcryptjs");
 const cors = require("cors");
 require("./connection")
 const StudentData = require("./student-data");
-// const { accountSid, authToken, twilioPhoneNumber } = process.env;
-// const client = require("twilio")(accountSid, authToken);
 
 const app = express();
 const port = 7000;
@@ -23,7 +21,7 @@ app.use(cors(
   }
 ))
 
-mongoose.connect("mongodb+srv://amank250umar:HYQLspaui8AJ9GJ1@cluster0.lql7oej.mongodb.net/CUH-student?retryWrites=true&w=majority")
+// mongoose.connect("mongodb+srv://amank250umar:HYQLspaui8AJ9GJ1@cluster0.lql7oej.mongodb.net/CUH-student?retryWrites=true&w=majority")
 
 // Registration Route
 app.post("/register", async (req, res) => {
@@ -68,100 +66,8 @@ app.get("/register", async (req, res) => {
     }
 })
 
-// // OTP Sending Route
-// app.post("/sendOtp", async (req, res) => {
-//     try {
-//         const { phone } = req.body;
-//         const otp = Math.floor(100000 + Math.random() * 900000);
-//         const ttl = 2 * 60 * 1000;
-//         const expires = Date.now() + ttl;
-//         const data = `${phone}.${otp}.${expires}`;
-//         const hash = crypto.createHash("sha256").update(data + process.env.SMS_SECRET_KEY).digest("hex");
-//         const fullHash = `${hash}.${expires}`;
-//         await client.messages.create({
-//             body: `Your OTP is: ${otp}`,
-//             from: twilioPhoneNumber,
-//             to: phone
-//         });
-//         res.status(200).json({ phone, hash: fullHash, message: "OTP sent successfully" });
-//     } catch (error) {
-//         console.error("Error sending OTP:", error);
-//         res.status(500).json({ error: "Failed to send OTP" });
-//     }
-// });
-
-
 const sendMail=require("./controller/SendMail");
 app.get("/sendmail",sendMail);
-
-
-//for event data
-// const events_schema=require("./eventSchema");
-// app.post("/eventdetails", (req, res) => {
-//     const { Event_name, Description, Departmen, Event_date, Registration_link, base64 } = req.body;
-//     try {
-//       Images.create({ Poster_image: base64 }); // Assuming "Events" is your model
-//       res.status(200).json({ status: "ok" });
-//     } catch (error) {
-//         res.status(500).json({ status: "error", data: error.message });
-//     }
-//   });
-
-
-//for event data
-// const events_schema = require("./eventSchema");
-// const multer = require('multer');
-
-// // storage
-// const storage = multer.diskStorage({
-//   destination: "uploads",
-//   filename: (req, file, cb) => {
-//     cb(null, file.originalname); // Corrected the function argument from "cd" to "cb"
-//   },
-// });
-
-// const upload = multer({
-//   storage: storage
-// }).single('testImage');
-
-// app.post("/upload", (req, res) => {
-//   upload(req, res, (err) => {
-//     if (err) {
-//       console.error(err);
-//       return res.status(500).send("Error uploading image");
-//     }
-
-//     // Create a new instance of events_schema with the image details
-//     const newImage = new events_schema({
-//     //   Event_name: req.body.Event_name,
-//     //   Description: req.body.Description,
-//     //   Departmen: req.body.Departmen,
-//     //   Event_date: req.body.Event_date,
-//     //   Registration_link: req.body.Registration_link,
-//     //   Poster_image: req.file.filename, // Assuming "Poster_image" is the field to store the image filename
-//     name:req.body.name,
-//     Poster_image:{
-//         data:req.file.filename,
-//         contentType:"image/png"
-//     }
-//     });
-
-//     // Save the new image details to the database
-//     newImage.save()
-//       .then(() => {
-//         res.status(200).send("Successfully uploaded");
-//       })
-//       .catch((e) => {
-//         console.error(e);
-//         res.status(500).send("Error saving image details");
-//       });
-//   });
-// });
-
-
-
-
-
 
 
 
@@ -209,7 +115,7 @@ app.post("/upload", (req, res) => {
     // Save the new image details to the database
     newImage.save()
       .then(() => {
-        res.status(200).send("Successfully uploaded");
+        res.status(200).send( {message: "uploaded"});
       })
       .catch((e) => {
         console.error(e);

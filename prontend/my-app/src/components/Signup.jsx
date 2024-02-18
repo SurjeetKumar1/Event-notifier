@@ -38,7 +38,7 @@ const handleSubmit = async (e) => {
     from_name: username,
     from_email: email,
     to_name: "aman",
-    From_department:'department'
+    from_department:'department'
 
   };
 

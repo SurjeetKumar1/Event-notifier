@@ -27,7 +27,7 @@ const handleSubmit = async (e) => {
   const templateId = "template_aqcolm5";
   const publicKey = "tRdQ40jkzT2f8HYFk";
 
-  // Create a new object that contains dynamic template params
+  
   const templateParam = {
     from_name: username,
     from_email: email,
