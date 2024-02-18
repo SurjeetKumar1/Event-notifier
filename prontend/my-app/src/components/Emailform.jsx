@@ -20,26 +20,8 @@ const [program,setpogram]=useState("")
 const [semester,setsemester]=useState("");
 
 
-
-
-
 const handleSubmit = async (e) => {
   e.preventDefault();
-
-  if (!username || !email || !phone || !password || !department || !program || !semester) {
-    alert("Please fill out all fields");
-    return;
-  }
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!emailRegex.test(email)) {
-    alert("Please enter a valid email address");
-    return;
-  }
-  const phoneRegex = /^\d{10}$/;
-  if (!phoneRegex.test(phone)) {
-    alert("Please enter a valid phone number");
-    return;
-  }
 
   const serviceId = "service_txd8gcq";
   const templateId = "template_aqcolm5";
@@ -48,9 +30,9 @@ const handleSubmit = async (e) => {
   // Create a new object that contains dynamic template params
   const templateParam = {
     from_name: username,
-    from_email: 'loda@gmai.com',
-    to_email:email,
-    to_name: "Web Wizar",
+    from_email: email,
+    to_name: "aman",
+    message:semester
   };
 
   try {

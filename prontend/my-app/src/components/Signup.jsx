@@ -7,6 +7,8 @@ import { FaSquarePhoneFlip } from "react-icons/fa6";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import axios from "axios";
 import "./Signup.css";
+import emailjs from "@emailjs/browser";
+
 
 // import emailjs from "@emailjs/browser";
 
@@ -26,6 +28,31 @@ const [semester,setsemester]=useState("");
 const handleSubmit = async (e) => {
   e.preventDefault();
 
+  // emailjs details
+  const serviceId = "service_txd8gcq";
+  const templateId = "template_aqcolm5";
+  const publicKey = "tRdQ40jkzT2f8HYFk";
+
+  // Create a new object that contains dynamic template params
+  const templateParam = {
+    from_name: username,
+    from_email: email,
+    to_name: "aman",
+    From_department:'department'
+
+  };
+
+  try{
+     // Send the email using EmailJS
+     const emailResponse = await emailjs.send(
+      serviceId,
+      templateId,
+      templateParam,
+      publicKey
+    );
+    console.log("Email sent succesfully",emailResponse);
+  
+
   if (!username || !email || !phone || !password || !department || !program || !semester) {
     alert("Please fill out all fields");
     return;
@@ -42,7 +69,6 @@ const handleSubmit = async (e) => {
   }
 
 
-  
     // Register the user
     const res = await axios.post("http://localhost:7000/register", {
       username,
@@ -63,7 +89,11 @@ const handleSubmit = async (e) => {
     setdepartment("");
     setpogram("");
     setsemester("");
-  } 
+
+}catch(e){
+  console.log(e);
+}
+}
 
   return (
     <div className="wraper">

@@ -42,7 +42,7 @@
   }
   .card{
     position: relative;
-    width: 550px;
+    width: 500px;
     min-height: 228px;
     background-color: rgb(245, 245, 245);
     box-shadow: 0 10px 20px rgb(17, 14, 8);
@@ -50,6 +50,8 @@
     border-radius: 20px;
     margin:0 40px;
     margin-bottom: 35px;
+  /* background: url("./background.jpg") no-repeat; */
+
   }
   
   

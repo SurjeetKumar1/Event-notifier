@@ -4,6 +4,8 @@ import Slider from "../screen/Slider"
 import axios from "axios";
 import Button from '@mui/material/Button';
 import { FaBookmark } from "react-icons/fa";
+import ImgSlider from "../screen/ImgSlider";
+
 
 const Event = () => {
 
@@ -19,7 +21,7 @@ const Event = () => {
 
     {
       img: "https://www.pingpongmoments.in/blog/wp-content/uploads/2022/09/corporate-events-3.jpg",
-      name: "abc"
+      name: "Hackathone"
     },
 
     {
@@ -69,7 +71,7 @@ const Event = () => {
           ))}
         </div>
 
-
+    <ImgSlider/>
         <div style={{ fontSize: "2.5rem", fontWeight: "700", color: "rgb(20, 4, 63)", marginTop: "50px", marginLeft: "55px" }}>Upcoming Events</div>
 
         <div className='datacard' style={{ marginTop:"55px"}}>

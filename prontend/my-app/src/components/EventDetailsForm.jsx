@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import "./EventDetailsForm.css"; // Import the CSS file
 import axios from 'axios';
 
 export default function Department() {
+  const navigate = useNavigate();
   const [Event_name, set_event_name] = useState("");
   const [Description, set_event_des] = useState("");
   const [Departmen, set_event_Department] = useState("");
@@ -33,6 +35,15 @@ export default function Department() {
       // but Axios will automatically set it correctly when you pass FormData as the post data
       const event_details = await axios.post("http://localhost:7000/upload", formData);
 
+
+      if(event_details){
+        if(event_details.data.message==="uploaded"){
+          navigate("/");
+
+        }else{
+          alert(event_details.data.message);
+        }
+      }
       // Reset state here to clear the form if needed
       set_event_name("");
       set_event_des("");

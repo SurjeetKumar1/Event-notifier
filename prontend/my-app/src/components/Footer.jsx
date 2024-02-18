@@ -15,14 +15,14 @@ const Footer = () => {
         <div className='wave' id='wave4'></div>
       </div>
          <ul className='social_icon'>
-            <li><Link to="#" ><FaInstagramSquare /></Link></li>
-            <li><Link to="#" ><FaLinkedin /></Link></li>
+            <li><a href='https://www.instagram.com/amankumar___a1/' ><FaInstagramSquare /></a></li>
+            <li><a href='https://www.linkedin.com/in/surjeet-kumar-b494b6259/' ><FaLinkedin /></a></li>
             <li><Link to="#" ><FaTwitter /></Link></li>
          </ul>
          <ul className="menu">
             <li><Link to="/">Home</Link> </li>
             <li><Link to="/about">About</Link> </li>
-            <li><Link to="/event">Event</Link> </li>
+            <li><Link to="#">Event</Link> </li>
             <li><Link to="/signup">resiter</Link> </li>
             <li><Link to="/login">Login</Link> </li>
          </ul>

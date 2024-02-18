@@ -1,8 +1,7 @@
 import './App.css';
 import Navbar1 from "./components/Navbar1";
 import { BrowserRouter,Routes,Route } from 'react-router-dom';
-import About from './components/About';
-import Event from './components/Event';
+import Notification from './components/Notification';
 import Login from "./components/Login";
 import Signup from './components/Signup';
  import Home from './components/Home';
@@ -10,6 +9,9 @@ import Signup from './components/Signup';
  import Footer from "./components/Footer"
  import EventDetails from "./components/EventDetailsForm";
  import Button from '@mui/material/Button';
+ import Bookmark from "./components/Bookmark"
+ import Emailjs from "./components/Emailform";
+
 function App() {
   return (
    <>
@@ -17,12 +19,13 @@ function App() {
    <Navbar1/>
    <Routes>
     <Route path='/' element={<Home/>}/>
-    <Route exact path='/about' element={<About/>}/>
-    <Route exact path='/event' element={<Event/>}/>
+    <Route exact path='/bookmark' element={<Bookmark/>}/>
+    <Route exact path='/notification' element={<Notification/>}/>
     <Route exact path='/login' element={<Login/>}/>
     <Route exact path='/signup'   element={<Signup/>}/>
     <Route exact path='/admin' element={<Admin/>}/>
     <Route exact path='/admin/eventdetails' element={<EventDetails/>}/>
+    <Route exact path='/emailjs' element={<Emailjs/>}/>
 
    </Routes>
      <Footer/> 

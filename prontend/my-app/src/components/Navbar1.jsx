@@ -4,13 +4,15 @@ import logo from "./event-logo.png";
 import "./Navbar1.css";
 import { FiAlignRight, FiX } from "react-icons/fi";
 import Button from '@mui/material/Button';
+import { IoMdNotifications } from "react-icons/io";
+import cart from "./cart2.png"
 
 export default function Navbar1() {
-  const [bg_color,setbg_color]=useState("rgb(255, 153, 0)");
+  // const [bg_color,setbg_color]=useState("rgb(255, 153, 0)");
   const [clicked, setClicked] = useState(false);
-  function setcolor(){
-    setbg_color(bg_color==="white"?"rgb(255, 153, 0)":"white")
-  }
+  // function setcolor(){
+  //   setbg_color(bg_color==="white"?"rgb(255, 153, 0)":"white")
+  // }
 
   return (
     <>
@@ -23,33 +25,14 @@ export default function Navbar1() {
             <li>
               <Button 
               className="active"
-              variant="outline" component={Link} 
+              variant="contain" component={Link} 
   to="/"
   // onClick={setcolor}
-              style={{height:"45px"}}>
+              style={{height:"45px" ,background:"rgb(255, 153, 0)"}}>
         HOME
       </Button>
             </li>
-            {/* <li>
-              <Button 
-              className="active"
-              variant="outline"  component={Link} 
-  to="/about"
-  onClick={setcolor}
-              style={{height:"45px"}}>
-        ABOUT
-      </Button>
-            </li> */}
-            {/* <li>
-              <Button 
-              className="active"
-              variant="outline"
-              size="small"  component={Link} 
-  to="/event"
-              style={{height:"45px"}}>
-        event
-      </Button>
-            </li> */}
+          
             <li>
             <Button 
               className="active"
@@ -70,6 +53,16 @@ export default function Navbar1() {
               style={{height:"45px"}}>
         Login
       </Button>
+            </li>
+              <li>
+              <Link to="/bookmark" >
+             <img src={cart} alt="cart" style={{width:"35px", height:"35px",marginLeft:"-10px"}}/>
+             </Link>
+            </li>
+            <li>
+            <Link to="/notification">
+             <IoMdNotifications style={{fontSize:"1.7rem" ,color:"black"}}/>
+             </Link>
             </li>
           </ul>
         </div>
