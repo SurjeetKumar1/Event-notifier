@@ -68,7 +68,7 @@ const handleSubmit = async (e) => {
 
 
     // Register the user
-    const res = await axios.post("http://localhost:7000/register", {
+    const res = await axios.post("event-notifier-neon.vercel.app/register", {
       username,
       email,
       phone,
