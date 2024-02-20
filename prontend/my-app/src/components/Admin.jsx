@@ -4,7 +4,6 @@ import { FaLock } from "react-icons/fa";
 import { MdOutgoingMail } from "react-icons/md";
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import axios from "axios";
-
 import "./Signup.css"
 export default function Admin() {
   const navigate = useNavigate();

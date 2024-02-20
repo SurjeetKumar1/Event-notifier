@@ -1,38 +1,44 @@
 const nodemailer = require("nodemailer");
+require("dotenv").config();
+const path =require("path");
 
-const sendMail = async (req, res) => {
-  try {
-    let testAccount = await nodemailer.createTestAccount();
+const transporter = nodemailer.createTransport({
+  service: "gmail",
+  host: "smtp.gmail.com",
+  port: 465,
+  secure: true,
+  auth: {
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS,
+  },
+});
 
-    // Connect with SMTP server
-    const transporter = nodemailer.createTransport({
-      host: "smtp.ethereal.email",
-      port: 587,
-      auth: {
-        user: "liliane.mitchell1@ethereal.email",
-        pass: "UbkAcFnnHRJknh3zKV",
-      },
-    });
 
-    async function main() {
-      // Send mail with defined transport object
-      const info = await transporter.sendMail({
-        from: '"Surjeet " <ak2691622@gmail.com>', // Sender address
-        to: "ak2691622@gmail.com, amank250umar@gmail.com", // List of receivers
-        subject: "advik event", // Subject line
-        text: "please come to my advik event", // Plain text body
-        html: "<b>kaise ho app log</b>", // HTML body
-      });
-
-      console.log("Message sent: %s", info.messageId);
-      res.json(info);
+    const mailOpstion={
+      from: '"aman" <ak2691622@gmail.com>', // sender address
+      to: "amank250umar@gmail.com", // list of receivers
+      subject: "Hello ✔", // Subject line
+      text: "Hello world?", // plain text body
+      html: "<b>Hello world?</b>", // html body
+      attachments:[
+        {
+         filename:"trans_light.png",
+         path:path.join(__dirname,"trans_light.png"),
+         contentType:"imge/jpg"
+        }
+      ]
     }
 
-    await main();
-  } catch (error) {
-    console.error("Error sending email:", error);
-    res.status(500).json({ error: "Internal Server Error" });
-  }
-};
+
+    const sendMail=async(transporter,mailOpstion)=>{
+     try{
+      await transporter.sendMail(mailOpstion);
+      console.log("Email has been succesfully")
+     }catch(e){
+        console.log(e);
+     }
+    }
+
+   sendMail(transporter,mailOpstion);
 
 module.exports = sendMail;

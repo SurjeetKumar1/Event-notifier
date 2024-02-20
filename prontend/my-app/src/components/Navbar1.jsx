@@ -5,6 +5,7 @@ import "./Navbar1.css";
 import { FiAlignRight, FiX } from "react-icons/fi";
 import Button from '@mui/material/Button';
 import { IoMdNotifications } from "react-icons/io";
+import { BsBookmarks } from "react-icons/bs";
 import cart from "./cart2.png"
 
 export default function Navbar1() {
@@ -56,7 +57,8 @@ export default function Navbar1() {
             </li>
               <li>
               <Link to="/bookmark" >
-             <img src={cart} alt="cart" style={{width:"35px", height:"35px",marginLeft:"-10px"}}/>
+             {/* <img src={cart} alt="cart" style={{width:"35px", height:"35px",marginLeft:"-10px"}}/> */}
+             <BsBookmarks style={{fontSize:"1.5rem",color:"black"}}/>
              </Link>
             </li>
             <li>

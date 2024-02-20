@@ -126,8 +126,8 @@ const Event = () => {
           }
 
         </div>
-        <div style={{ textAlign: "center" ,margin:"10px 0" }}><Button variant="contained" color="secondary" size="large"
-        style={{fontSize:"1.2rem",boxShadow:"5px 5px 10px black"}}
+        <div style={{ textAlign: "center" ,margin:"10px 0" }}><Button variant="contained"  size="large"
+        style={{fontSize:"1.2rem",boxShadow:"5px 5px 10px black" ,background:"#4174a2"}}
         onClick={fetchdata}
         
         >

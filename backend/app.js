@@ -5,12 +5,27 @@ const bcrypt = require("bcryptjs");
 const cors = require("cors");
 require("./connection")
 const StudentData = require("./student-data");
+const nodemailer=require("nodemailer");
+const path=require("path")
+const axios = require("axios")
 
 const app = express();
 const port = 7000;
 
 app.use(cors());
 app.use(express.json());
+
+//nodemailer transporter details
+const transporter=nodemailer.createTransport({
+  service:"gmail",
+  host:"smpt.gmail.com",
+  port:465,
+  secure:true,
+  auth:{
+    user:"ak2691622@gmail.com",
+    pass:"letrkokrmyqobwvr"
+  }
+})
 
 
 app.use(cors(
@@ -56,19 +71,19 @@ app.post("/login", async (req, res) => {
     }
 });
 
+ 
 app.get("/register", async (req, res) => {
-    try {
-        const cuh_members = await StudentData.find();
-        res.status(200).send(cuh_members);
-        console.log(cuh_members); 
-    } catch (e) {
-        res.status(400).end(e);
-    }
+  try {
+      const cuh_members = await StudentData.find({}, { email: 1, _id: 0 });
+      res.json(cuh_members);
+  } catch (e) {
+      res.status(400).end(e);
+  }
 })
 
-const sendMail=require("./controller/SendMail");
-app.get("/sendmail",sendMail);
 
+// const sendMail=require("./controller/SendMail");
+// app.get("/sendmail",sendMail);
 
 
 const events_schema = require("./eventSchema");
@@ -83,15 +98,17 @@ const storage = multer.diskStorage({
   },
 });
 
+
+
 // Multer configuration
 const upload = multer({
   storage: storage,
 }).single('testImage');
 
 // Image upload route
-app.post("/upload", (req, res) => {
+app.post("/upload",async(req, res) => {
   // Handle the file upload using Multer
-  upload(req, res, (err) => {
+  upload(req, res, async(err) => {
     if (err) {
       console.error(err);
       return res.status(500).send("Error uploading image");
@@ -113,15 +130,41 @@ app.post("/upload", (req, res) => {
     });
 
     // Save the new image details to the database
-    newImage.save()
-      .then(() => {
+    try{
+    const DetailsSave= await newImage.save()
+    console.log(DetailsSave.Event_name);
+    const EventName=DetailsSave.Event_name;
+    const EventDepartment=DetailsSave.Departmen;
+    const EventDescription=DetailsSave.Description;
+
+    const response=await axios.get('http://localhost:7000/register')
+    const emailArray = response.data.map(member => member.email);
+console.log(emailArray);
+    const mailOpstion={
+      from:'"CUH" <cuh@gmail.com>',//sender address
+    to:`${emailArray}`, // list of receivers"
+    subject:`${EventName}`, //subject line
+    text:`Department of ${EventDepartment} organize an ${EventName}`, //plain text body
+    html:`<b>Description:${EventDescription}</b>`, //html body
+    }
+
+    const sendMail=async(transporter,mailOpstion)=>{
+      try{
+        await transporter.sendMail(mailOpstion);
+        console.log("Email has been sent succesfully")
+      }
+      catch(e){
+        console.log(e);
+      }
+    }
+    sendMail(transporter,mailOpstion);
+
         res.status(200).send( {message: "uploaded"});
-      })
-      .catch((e) => {
+    }catch(e){
         console.error(e);
         res.status(500).send("Error saving image details");
-      });
-  });
+  }
+});
 });
 
 app.get("/upload",async (req,res)=>{
@@ -129,7 +172,6 @@ app.get("/upload",async (req,res)=>{
   try {
     const evendata = await events_schema.find().sort({"uploadedTime":-1}).skip(skipAmmount).limit(2);
     res.status(200).send(evendata);
-    console.log(skipAmmount); 
 } catch (e) {
     res.status(400).end(e);
 }

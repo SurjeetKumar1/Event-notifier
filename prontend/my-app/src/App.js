@@ -10,7 +10,6 @@ import Signup from './components/Signup';
  import EventDetails from "./components/EventDetailsForm";
  import Button from '@mui/material/Button';
  import Bookmark from "./components/Bookmark"
- import Emailjs from "./components/Emailform";
 
 function App() {
   return (
@@ -25,7 +24,6 @@ function App() {
     <Route exact path='/signup'   element={<Signup/>}/>
     <Route exact path='/admin' element={<Admin/>}/>
     <Route exact path='/admin/eventdetails' element={<EventDetails/>}/>
-    <Route exact path='/emailjs' element={<Emailjs/>}/>
 
    </Routes>
      <Footer/> 

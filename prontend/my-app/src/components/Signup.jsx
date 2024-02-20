@@ -23,8 +23,6 @@ const [semester,setsemester]=useState("");
 
 
 
-
-
 const handleSubmit = async (e) => {
   e.preventDefault();
 

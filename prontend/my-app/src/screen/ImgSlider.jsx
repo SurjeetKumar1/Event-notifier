@@ -4,6 +4,30 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./ImgSlider.css";
+// import img1 from "../components/EventImg/img1.jpeg";
+import img2 from "../components/EventImg/img2.jpeg";
+import img3 from "../components/EventImg/img3.jpeg";
+import img4 from "../components/EventImg/img4.jpeg";
+import img5 from "../components/EventImg/img5.jpeg";
+// import img6 from "../components/EventImg/img6.jpeg";
+import img7 from "../components/EventImg/img7.jpeg";
+import img8 from "../components/EventImg/img8.jpeg";
+import img9 from "../components/EventImg/img9.jpeg";
+// import img10 from "../components/EventImg/img10.jpeg";
+import img11 from "../components/EventImg/img11.jpeg";
+import img12 from "../components/EventImg/img12.jpeg";
+import img13 from "../components/EventImg/img13.jpeg";
+import img14 from "../components/EventImg/img14.jpeg";
+import img15 from "../components/EventImg/img15.jpeg";
+import img16 from "../components/EventImg/img16.jpeg";
+import img17 from "../components/EventImg/img17.jpeg";
+import img18 from "../components/EventImg/img18.jpeg";
+// import img19 from "../components/EventImg/img19.jpeg";
+import img20 from "../components/EventImg/img20.jpeg";
+import img21 from "../components/EventImg/img21.jpeg";
+import img22 from "../components/EventImg/img22.jpeg";
+
+
 
 
 function Arrow(props) {
@@ -61,23 +85,71 @@ const ImgSlider = () => {
       return (
         <div className="slider-container">
           <Slider {...settings}>
+            {/* <div className='imgcontainer'>
+              <img src={img1} alt='eventimg'/>
+            </div> */}
             <div className='imgcontainer'>
-              <img src='https://images.unsplash.com/photo-1707345512638-997d31a10eaa?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHx8' alt='eventimg'/>
+            <img src={img2} alt='eventimg'/>
             </div>
             <div className='imgcontainer'>
-            <img src='https://images.unsplash.com/photo-1682687982298-c7514a167088?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHw2fHx8ZW58MHx8fHx8' alt='eventimg'/>
+            <img src={img3} alt='eventimg'/>
             </div>
             <div className='imgcontainer'>
-            <img src='https://images.unsplash.com/photo-1707343848610-16f9afe1ae23?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxMXx8fGVufDB8fHx8fA%3D%3D' alt='eventimg'/>
+            <img src={img4} alt='eventimg'/>
             </div>
             <div className='imgcontainer'>
-            <img src='https://images.unsplash.com/photo-1707345512638-997d31a10eaa?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHx8' alt='eventimg'/>
+            <img src={img5} alt='eventimg'/>
+            </div>
+            {/* <div className='imgcontainer'>
+            <img src={img6} alt='eventimg'/>
+            </div> */}
+            <div className='imgcontainer'>
+            <img src={img7} alt='eventimg'/>
             </div>
             <div className='imgcontainer'>
-            <img src='https://images.unsplash.com/photo-1707345512638-997d31a10eaa?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHx8' alt='eventimg'/>
+            <img src={img8} alt='eventimg'/>
             </div>
             <div className='imgcontainer'>
-            <img src='https://images.unsplash.com/photo-1707343845208-a20c56d2c8ba?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwyMXx8fGVufDB8fHx8fA%3D%3D' alt='eventimg'/>
+            <img src={img9} alt='eventimg'/>
+            </div>
+            {/* <div className='imgcontainer'>
+            <img src={img10} alt='eventimg'/>
+            </div> */}
+            <div className='imgcontainer'>
+            <img src={img11} alt='eventimg'/>
+            </div>
+            <div className='imgcontainer'>
+            <img src={img12} alt='eventimg'/>
+            </div>
+            <div className='imgcontainer'>
+            <img src={img13} alt='eventimg'/>
+            </div>
+            <div className='imgcontainer'>
+            <img src={img14} alt='eventimg'/>
+            </div>
+            <div className='imgcontainer'>
+            <img src={img15} alt='eventimg'/>
+            </div>
+            <div className='imgcontainer'>
+            <img src={img16} alt='eventimg'/>
+            </div>
+            <div className='imgcontainer'>
+            <img src={img17} alt='eventimg'/>
+            </div>
+            <div className='imgcontainer'>
+            <img src={img18} alt='eventimg'/>
+            </div>
+            {/* <div className='imgcontainer'>
+            <img src={img19} alt='eventimg'/>
+            </div> */}
+            <div className='imgcontainer'>
+            <img src={img20} alt='eventimg'/>
+            </div>
+            <div className='imgcontainer'>
+            <img src={img21} alt='eventimg'/>
+            </div>
+            <div className='imgcontainer'>
+            <img src={img22} alt='eventimg'/>
             </div>
           </Slider>
         </div>

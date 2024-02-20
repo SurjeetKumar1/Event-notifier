@@ -1,0 +1,48 @@
+.bookmarkCardContaner{
+    display: flex;
+    justify-content: center;
+    margin: 10px 0px;
+}
+
+.toptext{
+    display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  color: rgb(2, 2, 45);
+  margin: 20px 0px 10px 0px;
+}
+.bookCard{
+    width: 819px;
+  border-radius: 5px;
+    border: 1px solid rgba(3, 33, 33, 0.132);
+    background-color: aliceblue;
+    display: flex;
+    align-items: center;
+  justify-content: space-around;
+  margin: 10px 180px 10px 180px;
+}
+.bookCard .Carddetail{
+    margin: 0px 10px;
+}
+.bookCard img{
+   width: 200px;
+    height: 160px;
+}
+@media only screen and (max-width: 600px) {
+    .bookCard img{
+        width: 150px;
+         height: 100px;
+     } 
+     .bookCard {
+        width: 819px;
+        border-radius: 5px;
+        border: 1px solid rgba(3, 33, 33, 0.132);
+        background-color: aliceblue;
+        display: flex;
+        align-items: center;
+        border: 1px solid rgba(0, 0, 0, 0.24);
+  background-color: #f0f8ffba;
+        /* justify-content: flex-end; */
+     }
+}
