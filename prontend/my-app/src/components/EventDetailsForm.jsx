@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import "./EventDetailsForm.css"; // Import the CSS file
 import axios from 'axios';
 import Button from '@mui/material/Button';
+import { Baseurl } from '../Utils/BaseUrl';
 
 export default function Department() {
   const navigate = useNavigate();
@@ -37,7 +38,7 @@ export default function Department() {
 console.log(formData)
     try {
 
-      const event_details = await axios.post("http://localhost:7000/upload", formData);
+      const event_details = await axios.post(`${Baseurl}/upload`, formData);
 
 
       if(event_details){
@@ -78,7 +79,7 @@ const [GalleryImage,setgalleryImg]=useState("")
     imgData.append("GalleryImage",GalleryImage)
     console.log(imgData)
     try{
-     const gellary_img=await axios.post("http://localhost:7000/GalleryImg",
+     const gellary_img=await axios.post(`${Baseurl}/GalleryImg`,
      imgData
      );
      console.log("image uploaded successfully from prontend",gellary_img.data)

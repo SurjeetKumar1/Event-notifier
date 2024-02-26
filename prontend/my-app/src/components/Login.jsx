@@ -4,7 +4,7 @@ import { FaLock } from "react-icons/fa";
 import { MdOutgoingMail } from "react-icons/md";
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import axios from "axios";
-
+import { Baseurl } from '../Utils/BaseUrl';
 
 
 import "./Signup.css"
@@ -14,7 +14,7 @@ export default function Signup() {
   const [password, setpassword] = useState("");
   const onsubmit = async (e) => {
     e.preventDefault();
-    const res = await axios.post("http://localhost:7000/login", {
+    const res = await axios.post(`${Baseurl}/login`, {
       email, password
     })
     if (res) {

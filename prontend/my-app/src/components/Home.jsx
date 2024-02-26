@@ -5,6 +5,7 @@ import axios from "axios";
 import Button from "@mui/material/Button";
 import { FaBookmark } from "react-icons/fa";
 import ImgSlider from "../screen/ImgSlider";
+import { Baseurl } from "../Utils/BaseUrl";
 
 const Event = () => {
   const [apidata, setapidata] = useState([]);
@@ -44,7 +45,7 @@ const Event = () => {
     try {
       const skip = (page - 1)*2;
       const evdata = await axios.get(
-        `http://localhost:7000/upload?skip=${skip}`
+        `${Baseurl}/upload?skip=${skip}`
       );
       setpage(page + 1);
       setapidata((prevData) => [...prevData, ...evdata.data]); // Append new data to existing data
@@ -63,7 +64,7 @@ const Event = () => {
 
       try {
         const bookmarkdata = await axios.post(
-          "http://localhost:7000/Bookmark",
+          `${Baseurl}/Bookmark`,
           {
             bookmarkId,
             eventName,
@@ -79,7 +80,7 @@ const Event = () => {
     } else {
       try {
         const deletedBookmark = await axios.delete(
-          "http://localhost:7000/Bookmarkdeletion",
+          `${Baseurl}/Bookmarkdeletion`,
         //   {
         //   bookmarkId
         // }

@@ -8,6 +8,7 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import axios from "axios";
 import "./Signup.css";
 import emailjs from "@emailjs/browser";
+import { Baseurl } from "../Utils/BaseUrl";
 
 
 // import emailjs from "@emailjs/browser";
@@ -71,7 +72,7 @@ const handleSubmit = async (e) => {
 
 
     // Register the user
-    const res = await axios.post("http://localhost:7000/register", {
+    const res = await axios.post(`${Baseurl}/register`, {
       username,
       email,
       phone,

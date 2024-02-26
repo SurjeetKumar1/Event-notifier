@@ -6,6 +6,7 @@ import Button from '@mui/material/Button';
 import axios from "axios";
 import AOS from "aos";
 import 'aos/dist/aos.css';
+import { Baseurl } from '../Utils/BaseUrl';
 
 const Eventgallery = () => {
     const [getdata,setgetdata]=useState([])
@@ -20,7 +21,7 @@ const Eventgallery = () => {
     //get img data from the server
     const Getimgdata=async()=>{
       try{
-        let getdata=await axios.get("http://localhost:7000/GalleryImg");
+        let getdata=await axios.get(`${Baseurl}/GalleryImg`);
         console.log("geeting img data from the server",getdata.data);
         setgetdata(getdata.data);
       }catch(e){

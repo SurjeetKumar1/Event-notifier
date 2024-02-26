@@ -3,6 +3,7 @@ import "./Bookmark.css"
 import DeleteIcon from "@mui/icons-material/Delete"
 import Button from "@mui/material/Button"
 import axios from "axios"
+import { Baseurl } from '../Utils/BaseUrl'
 
 
 
@@ -14,7 +15,7 @@ const Bookmark = () => {
   const deleteEvent=async(id)=>{
     try{
       console.log()
-    const deletebookmark=await axios.delete("http://localhost:7000/Bookmarkdeletion",
+    const deletebookmark=await axios.delete(`${Baseurl}/Bookmarkdeletion`,
     id
     )
     console.log("Bookmark deleted successfully",deletebookmark);
@@ -26,7 +27,7 @@ const Bookmark = () => {
 
   const fetchdata=async()=>{
     try{ 
-    const getcard=await axios.get("http://localhost:7000/Bookmark");
+    const getcard=await axios.get(`${Baseurl}/Bookmark`);
      console.log("getting card data successfully",getcard.data);
      setgetcarddata(getcard.data);
   }catch(e){

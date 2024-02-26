@@ -5,6 +5,7 @@ import { MdOutgoingMail } from "react-icons/md";
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import axios from "axios";
 import "./Signup.css"
+import { Baseurl } from '../Utils/BaseUrl';
 export default function Admin() {
   const navigate = useNavigate();
   const [email, setemail] = useState("");
@@ -12,7 +13,7 @@ export default function Admin() {
   const onsubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:7000/login", {
+      const res = await axios.post(`${Baseurl}/login`, {
         email,
         password
       });
