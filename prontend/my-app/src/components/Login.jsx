@@ -14,7 +14,7 @@ export default function Signup() {
   const [password, setpassword] = useState("");
   const onsubmit = async (e) => {
     e.preventDefault();
-    const res = await axios.post("event-notifier-neon.vercel.app/login", {
+    const res = await axios.post("http://localhost:7000/login", {
       email, password
     })
     if (res) {

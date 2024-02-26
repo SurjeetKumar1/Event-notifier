@@ -5,9 +5,10 @@ const Text = () => {
     <>
     <div className='content-body'>
     <div className='content'>
-      <h2>CUH</h2>
-      <h2>CUH</h2>
+      <h2>EVENTGALLERY</h2>
+      <h2>EVENTGALLERY</h2>
     </div>
+    
     </div>
     </>
   )

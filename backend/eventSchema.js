@@ -32,8 +32,9 @@ const event_Schema = new mongoose.Schema({
   },
 
   Poster_image: {
-    data: Buffer,
-    contentType: String,
+    // data: Buffer,
+    // contentType: String,
+    type:String,
   },
   uploadedTime: {
     type: Date,

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import { FaUser } from "react-icons/fa";
 import { FaLock } from "react-icons/fa";
 import { MdOutgoingMail } from "react-icons/md";
@@ -13,6 +13,8 @@ import emailjs from "@emailjs/browser";
 // import emailjs from "@emailjs/browser";
 
 export default function Signup() {
+
+  const navigate=useNavigate();
 const [username,setusername]=useState("");
 const [email,setemail]=useState("");
 const [phone,setPhone]=useState("");
@@ -24,6 +26,7 @@ const [semester,setsemester]=useState("");
 
 
 const handleSubmit = async (e) => {
+
   e.preventDefault();
 
   // emailjs details
@@ -68,7 +71,7 @@ const handleSubmit = async (e) => {
 
 
     // Register the user
-    const res = await axios.post("event-notifier-neon.vercel.app/register", {
+    const res = await axios.post("http://localhost:7000/register", {
       username,
       email,
       phone,
@@ -78,6 +81,14 @@ const handleSubmit = async (e) => {
       semester,
     });
     console.log("User registered successfully", res.data);
+    if(res){
+      if(res.data.message==="resitered"){
+        alert(`${username} ,you are successfully resisterd`)
+        navigate("/");
+      }else{
+        alert(res.data.message)
+      }
+    }
 
     // Reset form fields
     setusername("");
@@ -147,33 +158,66 @@ const handleSubmit = async (e) => {
            placeholder="password" />
           <FaLock className="register-icon" />
         </div>
+
         <div className="input-box">
-          <input type="text"
-          id="department"
-          name="department"
-          value={department}
-          onChange={((e)=>{setdepartment(e.target.value)})}
-          required
-           placeholder="Department" />
+         <select onChange={((e)=>{setdepartment(e.target.value)})}>
+         <option selected>Choose Department.....</option>
+         <option>Computer Science And Engineering</option>
+         <option>Electrical Engineering</option>
+         <option>Civil Engineering</option>
+         <option>Printing And Packaging Technology</option>
+
+         </select>
         </div>
+
         <div className="input-box">
-          <input type="text"
-          id="program"
-          name="program"
-          value={program}
-          onChange={(e)=>setpogram(e.target.value)} 
-          required
-          placeholder="Program" />
-        </div>
+    <select onChange={(e)=>setpogram(e.target.value)}>
+        <option selected>Choose Program.....</option>
+        {department === "Computer Science And Engineering" && (
+            <>
+                <option>B.Tech</option>
+                <option>M.Tech</option>
+                <option>BCA</option>
+                <option>MCA</option>
+            </>
+        )}
+        {(department === "Electrical Engineering" || department === "Printing And Packaging Technology" || department === "Civil Engineering") && (
+    <>
+        <option>B.Tech</option>
+        <option>M.Tech</option>
+    </>
+)}
+    </select>
+</div>
+
+
+
         <div className="input-box">
-          <input type="text"
-          id="semester"
-          name="semester"
-          value={semester}
-          onChange={(e)=>{setsemester(e.target.value)}}
-          required
-           placeholder="Semester" />
-        </div>
+    <select onChange={(e)=>setsemester(e.target.value)}>
+        <option selected>Choose Semester.....</option>
+        {program === "B.Tech"  && (
+            <>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+            </>
+        )}
+        {program === "M.Tech"||program==="BCA"||program==="MCA" && (
+            <>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+            </>
+        )}
+    </select>
+</div>
+        
         <div className="remember-forgot">
           <label>
             <input type="checkbox" />

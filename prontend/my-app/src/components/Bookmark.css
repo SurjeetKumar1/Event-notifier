@@ -1,7 +1,9 @@
 .bookmarkCardContaner{
-    display: flex;
-    justify-content: center;
-    margin: 10px 0px;
+  display: flex;
+  justify-content: center;
+  margin: 10px 0px;
+  flex-direction: column;
+  align-items: center;
 }
 
 .toptext{
@@ -10,7 +12,9 @@
   flex-direction: column;
   align-items: center;
   color: rgb(2, 2, 45);
-  margin: 20px 0px 10px 0px;
+  /* margin: 20px 0px 10px 0px; */
+  box-shadow: 1px 1px 8px #5e575c;
+  width: 810px;
 }
 .bookCard{
     width: 819px;

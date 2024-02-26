@@ -116,3 +116,14 @@ justify-content: center;
   text-decoration: underline;
   color:rgb(13, 3, 45);
 }
+.input-box select{
+  width: 520px;
+  height: 50px;
+  font-size: 1.1rem;
+  padding: 10px;
+    padding-left: 10px;
+  /* border: none; */
+  padding-left: 20px;
+  background: white;
+  border-radius: 30px
+}
